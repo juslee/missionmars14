@@ -1,0 +1,37 @@
+const clients = require('restify-clients');
+
+module.exports = (config) => {
+    return (query, callback) => {
+        const client = clients.createJsonClient({
+            url: `https://southeastasia.api.cognitive.microsoft.com`,
+            headers: {
+                'Ocp-Apim-Subscription-Key': config.apiKey
+            }
+        });
+
+        const urlPath = '/text/analytics/v2.0/sentiment';
+
+/*----------------------------------------------------------------------------------------
+* Mission 3: Use sentiment analytics
+* ---------------------------------------------------------------------------------------- */
+        const payload = {
+            documents: [{
+                language: 'en',
+                id: 'singleId',
+                text: query
+            }]
+        };
+
+        client.post(urlPath, payload, (err, request, response, result) => {
+            if (!err &&
+                response &&
+                response.statusCode == 200 &&
+                result.documents[0]) {
+                callback(null, result.documents[0].score);
+            } else {
+                callback(err, null);
+            }
+        });       
+//////////////////////////////////////////////////////////////////////////////////////////      
+    };
+};
