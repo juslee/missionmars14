@@ -14,24 +14,22 @@ module.exports = (config) => {
 /*----------------------------------------------------------------------------------------
 * Mission 3: Use sentiment analytics
 * ---------------------------------------------------------------------------------------- */
-        const payload = {
-            documents: [{
-                language: 'en',
-                id: 'singleId',
-                text: query
-            }]
-        };
+        //const payload = {
+        //    documents: [{
+        //        language: 
+        //        id: 
+        //      text: 
+        //    }]
+        //};
 
-        client.post(urlPath, payload, (err, request, response, result) => {
-            if (!err &&
-                response &&
-                response.statusCode == 200 &&
-                result.documents[0]) {
-                callback(null, result.documents[0].score);
-            } else {
-                callback(err, null);
-            }
-        });       
+        //client.post(..., ..., (err, request, response, result) => {
+            // if no error execute this
+            //if () {
+            //    
+            //} else {
+            // return the errors
+            //}
+        //});       
 //////////////////////////////////////////////////////////////////////////////////////////      
     };
 };
