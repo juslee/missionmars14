@@ -118,7 +118,7 @@ bot.dialog('SubmitTicket', [
 const textAnalytics = require('./textAnalyticsApiClient');
 const analyzeText = textAnalytics({
     apiKey: process.env.TextAnalyticsKey
-});a
+});
 
 bot.dialog('UserFeedbackRequest', [
     (session, args) => {
